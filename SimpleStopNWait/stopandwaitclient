@@ -1,0 +1,71 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <arpa/inet.h>
+
+#define MAXLINE 1024 
+
+void main(){
+	char *ip="127.0.0.1";
+	int port =5000;
+	int framesno;
+	char frames[100];
+	int sock;
+	struct sockaddr_in addr;
+	char buffer[1024];
+	char acknowledgement[1024];
+	int n;
+
+	sock = socket(AF_INET,SOCK_DGRAM,0);
+	if (sock<0) 	
+	{
+		perror("[-] Socket error\n");
+		exit(1);
+	}
+	printf("\nEnter the number of frames : ");
+	scanf("%d", &framesno);
+	printf("\nEnter the frames : ");
+	for(int i=0;i<framesno;i++){
+		scanf("%c", &frames[i]);
+		scanf("%c", &frames[i]);
+	}
+
+	printf("\n[+] UDP socket created.\n");
+
+	memset(&addr,'\0',sizeof(addr));
+	addr.sin_family=AF_INET;
+	addr.sin_port=port;
+	addr.sin_addr.s_addr=inet_addr(ip);
+
+	printf("[+] Connected to the server.\n");
+
+	bzero(buffer,1024);
+	char temp = framesno + '0';
+	buffer[0]=temp;
+	sendto(sock, buffer, strlen(buffer), MSG_CONFIRM, (const struct sockaddr *) &addr, sizeof(addr));
+	bzero(buffer,1024);
+	bzero(acknowledgement,1024);
+	int i=0;
+	int len; 
+
+	int tempr = 0;
+	do{
+		bzero(buffer,1024);
+		buffer[0]=frames[i];
+		printf("\nClient : %s\n",buffer );
+		sendto(sock, buffer, 1, MSG_CONFIRM, (const struct sockaddr *) &addr, sizeof(addr));
+		bzero(buffer,1024);
+		bzero(acknowledgement,1024);
+		tempr = recvfrom(sock, (char *)acknowledgement, MAXLINE, MSG_WAITALL, (struct sockaddr *) &addr, &len); 
+		acknowledgement[tempr] = '\0'; 
+		// if(tempr > 0){
+			printf("\nServer : %s\n",acknowledgement);
+			bzero(acknowledgement,1024);
+			i++;
+		// }
+	}while(i<framesno);
+
+	close(sock);
+	printf("[+]Disconnected from the server.\n");
+}
