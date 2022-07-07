@@ -1,0 +1,11 @@
+1. Initialise an array of packets.
+
+2. Initialise PACKET_COUNTER to 0.
+
+3. Send a packet packet[PACKET_COUNTER] and wait for acknowledgement.
+
+4. On receiving acknowledgement. increment the value of PACKET_COUNTER
+
+5. If packets remain, go to step 3.
+
+6. Exit

@@ -1,0 +1,15 @@
+1. Initiate IP address and port number.
+
+2. Create a UDP socket using socket() system call.
+
+3. If socket() returns negative integer, print error and go to step 8.
+
+4. Bind the local address and port using bind() system call.
+
+5. If bind returns negative integer, print "bind error" and go to step 8.
+
+6. Receive messages from client using recvfrom() system call.
+
+7. Send time data to client using sendto() system call.
+
+8. Exit.

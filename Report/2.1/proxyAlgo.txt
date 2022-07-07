@@ -1,0 +1,23 @@
+1. Initialise IP address and port number for both client and server.
+
+2. Create 2 sockets using socket() system call from communicating with client as well as server.
+
+3. Print "TCP socket created".
+
+4. Bind the local address and port using bind() system call.
+
+5. Connect to the listening socket of server using connect() system call.
+
+6. Receive message from client using recv() system call.
+
+7. Send the message to the server using send() system call.
+
+8. Receive reply from server using recv() system call.
+
+9. Send the reply to the client using send() system call.
+
+10. Close the connection.
+
+11. Print "Disconnected from proxy server".
+
+12. Exit

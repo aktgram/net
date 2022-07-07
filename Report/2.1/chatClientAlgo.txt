@@ -1,0 +1,21 @@
+1. Initilise IP address and port number.
+
+2. Create a socket using socket() system call.
+
+3. Print "TCP socket created".
+
+4. Connect to the listening socket using connect() system call.
+
+5. Print "Connected to the server".
+
+6. Send a message along with the intended receiver to the server using send() system call.
+
+7. Receive reply using recv() system call.
+
+8. Print the received message.
+
+9. Close the connection.
+
+10. Print "Disconnected from server".
+
+11. Exit

@@ -1,0 +1,27 @@
+1. Initiate IP address and port number.
+
+2. Create a TCP socket using socket() system call.
+
+3. If socket() returns negative integer, print error and go to step 14.
+
+4. Print "Server socket created!".
+
+5. Bind the local address and port using bind() system call.
+
+6. If bind returns negative integer, print "bind error" and go to step 14.
+
+7. Listen to proxy server using listen() system call.
+
+8. Accept connection from proxy server using accept() system call.
+
+9. Print "Proxy server connected".
+
+10. Receive message sent by proxy server using recv() system call.
+
+11. Print the received message.
+
+12. Send reply using send() system call.
+
+13. Close the connection using close() system call and go to step 8.
+
+14. Exit.

@@ -1,0 +1,9 @@
+1. Initialise IP address and port number.
+
+2. Create a socket using socket() system call.
+
+3. Send a message to server using sendto() system call.
+
+4. Receive message from server using recvfrom() system call
+
+5. Exit

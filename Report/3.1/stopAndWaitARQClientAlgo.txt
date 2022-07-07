@@ -1,0 +1,12 @@
+1. Initialise an array of packets.
+
+2. Initialise PACKET_COUNTER to 0.
+
+3. Send a packet packet[PACKET_COUNTER] and wait for acknowledgement.
+
+4. If acknowledgement is not received within the timeout limit, send the package again. 
+   Else increment the PACKET_COUNTER.
+
+5. If packets remain, go to step 3.
+
+6. Exit

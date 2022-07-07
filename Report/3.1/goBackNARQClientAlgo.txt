@@ -1,0 +1,16 @@
+1. Initialise an array of packets.
+
+2. Initialise PACKET_COUNTER to 0.
+
+3. Initialise WINDOW_SIZE.
+
+4. Send the window packets.
+
+5. When acknowledgement is received for the first packet in the window, slide the window.
+
+6. If no acknowledgment is received or negative acknowledgement is received, 
+   send the missing packet again.
+
+7. Repeat the process till all packets are transmitted.
+
+8. Exit.
